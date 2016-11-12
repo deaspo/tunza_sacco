@@ -1,6 +1,6 @@
 <h1>Tunza Sacco Society </h1>
 <h4>Description of the Project </h4>
-<p>The goal of this project is to build apps to facilitate online operations for Tunza Sacco its interactions with its customers.</p>
+<p>The goal of this project is to build apps to facilitate online operations for Tunza Sacco and its interactions with its customers.</p>
 <p> As it stands out at the moment, the interations are mostly by emails, phone and physical visits, whic it's hopefully by bringing this apps into the piccture that will change.</p>
 <p> The goal of this project is to do the following,
   <ol>
