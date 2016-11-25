@@ -1,1 +1,25 @@
 {% extends 'base_page.html' %}
+
+{% block sliding-home %}
+    <div class="templatemo_headerimage">
+        <div class="flexslider">
+            <ul class="slides">
+                {% for product in products %}
+                    <li>
+                        <img src="{{ product.pic.url }}" alt="Slide 1">
+                        <div class="slider-caption">
+                            <div style="font-weight: Bold; color: black; background-color: #c4e3f3;" class="templatemo_homewrapper">
+                              <h1 class="wow fadeInDown" data-wow-delay="2000">{{ product.name }}</h1>
+                              <h2 class="wow fadeInDown" data-wow-delay="2000">
+                                <span>{{ product.desc }}</span>
+                            </h2>
+                            <a href="#about" class="smoothScroll btn btn-default wow fadeInDown" data-wow-delay="2000">Apply now</a>
+                            </div>
+                        </div>
+		            </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+{% endblock sliding-home %}

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'sacco',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -121,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'sacco/static')
 MEDIA_ROOT = os.path.join(BASE_DIR,'sacco/media')
 
 MEDIA_URL = '/media/'

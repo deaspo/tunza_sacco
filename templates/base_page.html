@@ -22,8 +22,18 @@
 		<!-- custom -->
 		<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
 	</head>
 	<body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
+
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
 
 		<!-- start navigation -->
 		<div class="navbar navbar-fixed-top navbar-default" role="navigation">
@@ -34,18 +44,15 @@
 						<span class="icon icon-bar"></span>
 						<span class="icon icon-bar"></span>
 					</button>
-					<a href="#" class="navbar-brand"><img src="{% static 'images/logo.jpg' %}" class="img-responsive" alt="logo"></a>
+					<a href="#" class="navbar-brand"><img src="{% static 'images/tunza_logo.png' %}" class="img-responsive" alt="logo"></a>
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#home" class="smoothScroll">HOME</a></li>
-						<li><a href="#service" class="smoothScroll">PRODUCTS & SERVICES</a></li>
-						<li><a href="#about" class="smoothScroll">ABOUT US</a></li>
-						<li><a href="#membership" class="smoothScroll">MEMBERSHIP</a></li>
-						<li><a href="#news" class="smoothScroll">NEWS</a></li>
-                        <li><a href="#vacancies" class="smoothScroll">VACANCIES</a></li>
-                        <li><a href="#tenders" class="smoothScroll">TENDERS</a></li>
-						<li><a href="#contact" class="smoothScroll">CONTACT US</a></li>
+						<li><a href="/" class="smoothScroll">HOME</a></li>
+						<li><a href="products" class="smoothScroll">PRODUCTS</a></li>
+						<li><a href="about" class="smoothScroll">ABOUT US</a></li>
+						<li><a href="membership" class="smoothScroll">MEMBERSHIP</a></li>
+						<li><a href="#contact_us">CONTACT US</a></li>
 					</ul>
 				</div>
 			</div>
@@ -53,80 +60,16 @@
 		<!-- end navigation -->
 
 		<!-- start home -->
-		<section id="home" class="text-center">
-		  <div class="templatemo_headerimage">
-		    <div class="flexslider">
-		      <ul class="slides">
-		        <li>
-		        	<img src="{% static 'images/slider/1.jpg' %}" alt="Slide 1">
-		        	<div class="slider-caption">
-					    <div class="templatemo_homewrapper">
-					      <h1 class="wow fadeInDown" data-wow-delay="2000">OUR VISION</h1>
-					      <h2 class="wow fadeInDown" data-wow-delay="2000">
-							<span>To be the most reliable one stop provider &AMP; of competitive financial services</span>
-						</h2>
-						<a href="#about" class="smoothScroll btn btn-default wow fadeInDown" data-wow-delay="2000">About us</a>
-					    </div>
-				  	</div>
-		        </li>
-		        <li>
-		        	<img src="{% static 'images/slider/2.jpg' %}" alt="Slide 2">
-		        	<div class="slider-caption">
-					    <div class="templatemo_homewrapper">
-					      <h1 class="wow fadeInDown" data-wow-delay="2000">Invest in Us</h1>
-					      <h2 class="wow fadeInDown" data-wow-delay="2000">
-							<span>Invest in our products and services</span>
-						</h2>
-						<p>We offer the best ...</p>
-						<a href="#about" class="smoothScroll btn btn-default wow fadeInDown" data-wow-delay="2000">See about us</a>
-					    </div>
-				  	</div>
-		        </li>
-                <li>
-		        	<img src="{% static 'images/slider/3.jpg' %}" alt="Slide 2">
-		        	<div class="slider-caption">
-					    <div class="templatemo_homewrapper">
-					      <h1 style="color: black;" class="wow fadeInDown" data-wow-delay="2000">What we value</h1>
-					      <h2 style="color: black;" class="wow fadeInDown" data-wow-delay="2000">
-							<span>Quality, Efficient, Reliable, Integrity & Friendliness</span>
-						</h2>
-						<p>You need a loan, we have got you covered</p>
-						<a href="#about" class="smoothScroll btn btn-default wow fadeInDown" data-wow-delay="2000">See about us</a>
-					    </div>
-				  	</div>
-		        </li>
-                <li>
-		        	<img src="{% static 'images/slider/4.jpg' %}" alt="Slide 2">
-		        	<div class="slider-caption">
-					    <div class="templatemo_homewrapper">
-					      <h1 class="wow fadeInDown" data-wow-delay="2000">Payments made easier</h1>
-					      <h2 class="wow fadeInDown" data-wow-delay="2000">
-							<span>You win</span>
-						</h2>
-						<p>Save borrow and grow</p>
-						<a href="#about" class="smoothScroll btn btn-default wow fadeInDown" data-wow-delay="2000">See about us</a>
-					    </div>
-				  	</div>
-		        </li>
-                <li>
-		        	<img src="{% static 'images/slider/5.jpg' %}" alt="Slide 1">
-		        	<div class="slider-caption">
-					    <div class="templatemo_homewrapper">
-					      <h1 class="wow fadeInDown" data-wow-delay="2000">SAVE BORROW GROW</h1>
-					      <h2 class="wow fadeInDown" data-wow-delay="2000">
-							<span>Your &AMP; Financial Partner</span>
-						</h2>
-						<a href="#about" class="smoothScroll btn btn-default wow fadeInDown" data-wow-delay="2000">About us</a>
-					    </div>
-				  	</div>
-		        </li>
-		      </ul>
-		    </div>
-		  </div>
+
+        <section id="home" class="text-center">
+		    {% block sliding-home %}
+            {% endblock sliding-home %}
 		</section>
+
 		<!-- end home -->
 
 		<!-- start service -->
+        {% block intro %}
 		<div id="service">
 			<div class="container">
 				<div class="row">
@@ -137,7 +80,7 @@
 							</div>
 							<div class="media-body wow fadeIn">
 								<h3 class="media-heading">Products & Services</h3>
-								<p>Please check our <a rel="nofollow" href="#service" target="_parent">service</a> to find what suits you.</p>
+								<p>Please check our <a rel="nofollow" href="products" target="_parent">Products</a> to find what suits you.</p>
 							</div>
 						</div>
 					</div>
@@ -148,7 +91,7 @@
 							</div>
 							<div class="media-body wow fadeIn">
 								<h3 class="media-heading">How to Join</h3>
-								<p>To enjoy the services, one must be an employee, click <a href="#membership">here</a>. </p>
+								<p>To enjoy our services, one must be an employee, click <a href="membership">here</a>. </p>
 							</div>
 						</div>
 					</div>
@@ -159,29 +102,18 @@
 							</div>
 							<div class="media-body wow fadeIn" data-wow-delay="0.3s">
 								<h3 class="media-heading">Resources</h3>
-								<p>See and download some of out documents easily, click <a href="#resources">here</a>. </p>
+								<p>See and download some of out documents easily, click <a href="resources">here</a>. </p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-sm-4">
 						<div class="media">
 							<div class="media-object media-left wow fadeIn" data-wow-delay="0.9s">
-								<i class="fa fa-html5"></i>
+								<i class="fa fa-check"></i>
 							</div>
 							<div class="media-body wow fadeIn" data-wow-delay="0.6s">
 								<h3 class="media-heading">Why this Sacco</h3>
-								<p>Membership is open to all employees within the..<a href="#about">continue reading</a>. </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="media">
-							<div class="media-object media-left wow fadeIn" data-wow-delay="0.4s">
-								<i class="fa fa-comments-o"></i>
-							</div>
-							<div class="media-body wow fadeIn" data-wow-delay="0.3s">
-								<h3 class="media-heading">Tenders</h3>
-								<p>See the current tenders that we are offering, <a href="#tenders">click here</a> </p>
+								<p>Membership is open to all employees within the..<a href="about">continue reading</a>. </p>
 							</div>
 						</div>
 					</div>
@@ -192,65 +124,83 @@
 							</div>
 							<div class="media-body wow fadeIn" data-wow-delay="0.6s">
 								<h3 class="media-heading">Our Terms</h3>
-								<p>See our terms of operations <a href="#terms">click here</a>, </p>
+								<p>See our terms of operations <a href="terms">click here</a>, </p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+        {% endblock intro %}
 		<!-- end service -->
 
 		<!-- start divider -->
+        {% block slider %}
 		<div id="divider">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-1 col-sm-1"></div>
 					<div class="col-md-8 col-sm-8">
-						<h2 class="wow bounce">We provide <strong>...</strong></h2>
-						<h3 class="wow fadeIn" data-wow-delay="0.6s"><mark>Quality</mark> product &amp; <mark>Efficient</mark> Services</h3>
-						<p class="wow fadeInUp" data-wow-delay="0.9s">See our Products and Services page, <a href="#service">click here</a> </p>
+						<h2 class="wow bounce"><strong> Tunza Sacco Society</strong></h2>
+						<h3 class="wow fadeIn" data-wow-delay="0.6s"><mark> SAVE REGULARLY, BORROW WISELY & PAY PROMPTLY</mark></h3>
+						<p class="wow fadeInUp" data-wow-delay="0.9s">See our Products, <a href="products">click here</a> </p>
 					</div>
 					<div class="col-md-2 col-sm-2"></div>
 				</div>
 			</div>
 		</div>
+        {% endblock slider %}
 		<!-- end divider -->
 
 		<!-- start about -->
+        {% block about %}
 		<div id="about">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-sm-6 wow fadeInLeft" data-wow-delay="0.9s">
 						<h3>About Tunza Sacco Society</h3>
-						<h4>Quality, Efficient, Reliable, Integrity & Friendliness</h4>
-						<p>We are ....</p>
-						<p>And also ...</p>
+						<h4>Tunza Vision.</h4>
+						<p> To be a well-managed Co-operative society capable of Economically and Socially empowering its' members.</p>
+                        <h4>Tunza Mission.</h4>
+						<p> To provide competitive, innovative profitable and sustainable savings and loan products and quality customer service through visionary leadership and upholding cooperative
+                            values.</p>
+                        <h4>Tunza Goal.</h4>
+						<p> To enhance/improve and increase savings through membership and offer wide range of loan products and services in a sustainable manner.</p>
 					</div>
 					<div class="col-md-6 col-sm-6 wow fadeInRight" data-wow-delay="0.9s">
-						<span class="text-top">Product A <small>100%</small></span>
+						<span class="text-top">Normal/Development loan <small>100% guranteed</small></span>
 							<div class="progress">
 								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
 							</div>
-						<span>Service A <small>80%</small></span>
+						<span>Refinancing loan <small>100% guranteed</small></span>
 							<div class="progress">
-								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
 							</div>
-						<span>Service B <small>90%</small></span>
+						<span>Furniture & Equipment loan <small>100% guranteed</small></span>
 							<div class="progress">
-								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
 							</div>
-						<span>Product B <small>70%</small></span>
+						<span>Emergency loan <small>100% guranteed</small></span>
 							<div class="progress">
-								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+							</div>
+                        <span>School fees loan <small>100% guranteed</small></span>
+							<div class="progress">
+								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+							</div>
+                        <span>Quick serve loan <small>100% guranteed</small></span>
+							<div class="progress">
+								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
 							</div>
 					</div>
 				</div>
 			</div>
 		</div>
+        {% endblock about %}
 		<!-- end about -->
 
 		<!-- start team -->
+        {% block team %}
 		<div id="team">
 			<div class="container">
 				<div class="row">
@@ -296,9 +246,11 @@
 				</div>
 			</div>
 		</div>
+        {% endblock team %}
 		<!-- end team -->
 
 		<!-- start newsletter -->
+        {% block contact %}
 		<div id="newsletter">
 			<div class="container">
 				<div class="row">
@@ -328,8 +280,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3 col-sm-4 wow fadeInLeft" data-wow-delay="0.6s">
-						<h2><strong>Sample Sacco Namen</strong> Sacco.</h2>
-						<p>A sacco dedicated.</p>
+						<h2><strong>Tunza Sacco Society</strong> Sacco.</h2>
+						<p>Tunza is a voluntary financial scheme and service organization through which members make savings and in return have access to loan facilities at considerably low interest rates.
+                            Tunza is a Swahili word for “CARE”, and it strives to assist its members develop just the way CARE does while uplifting the living standards of the communities it works with. Tunza society is constantly in pursuit of meeting its objectives by improving the well being of all its members.
+                        </p>
 						<ul class="social-icon">
 							<li><a href="#" class="fa fa-facebook"></a></li>
 							<li><a href="#" class="fa fa-twitter"></a></li>
@@ -338,10 +292,12 @@
 					</div>
 					<div class="col-md-3 col-sm-4 wow fadeIn" data-wow-delay="0.9s">
 						<address>
-							<h3>Visit Office</h3>
-							<p><i class="fa fa-map-marker too-icon"></i> 111 Westlands Uhuru highway, Nairobi</p>
-							<p><i class="fa fa-phone too-icon"></i> 010-010-0220</p>
-							<p><i class="fa fa-envelope-o too-icon"></i> info@tunzasacco.com</p>
+							<a id="contact_us" href="contact"></a><h3>Visit Office</h3>
+							<p><i class="fa fa-map-marker too-icon"></i> Kisumu</p>
+							<p><i class="fa fa-phone too-icon"></i> +254 057 2020606</p>
+							<p><i class="fa fa-envelope-o too-icon"></i> tunza@ksm.care.or.ke </p>
+                            <p><i class="fa-fax too-icon"></i> +2024474</p>
+                            <p class="text-center"><i class="fa fa-envelope-square too-icon"></i>Postal Address <br> c/o CARE KENYA <br> P.O BOX 88 <br> Kisumu </p>
 						</address>
 					</div>
 					<form action="#" method="post" class="col-md-6 col-sm-4" id="contact-form" role="form">
@@ -361,12 +317,15 @@
 				</div>
 			</div>
 		</div>
+        {% endblock contact %}
 		<!-- end contact -->
 
 		<!-- start google map -->
+        {% block gmap %}
 		<div class="google_map">
 			<div id="map-canvas"></div>
 		</div>
+        {% endblock gmap %}
 		<!-- end google map -->
 
 		<!-- start footer -->
@@ -409,6 +368,6 @@
 		<script src="{% static 'js/jquery.flexslider.js' %}"></script>
 		<!-- custom -->
 		<script src="{% static 'js/custom.js' %}"></script>
-
+        <script src="{% static 'js/preloader.js' %}"></script>
 	</body>
 </html>
